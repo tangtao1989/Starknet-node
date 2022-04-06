@@ -152,6 +152,7 @@ mod tests {
         let tx_original = (0..10)
             .map(|i| transaction::Transaction {
                 calldata: None,
+                class_hash: None,
                 constructor_calldata: None,
                 contract_address: ContractAddress(
                     StarkHash::from_hex_str(&"23".repeat(i as usize + 3)).unwrap(),
@@ -170,6 +171,7 @@ mod tests {
 
         let receipts_original = (0..10)
             .map(|i| transaction::Receipt {
+                actual_fee: None,
                 events: Vec::new(),
                 execution_resources: ExecutionResources {
                     builtin_instance_counter: BuiltinInstanceCounter::Empty(
